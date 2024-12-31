@@ -444,6 +444,8 @@ services:
       NEXT_TELEMETRY_DISABLED: ${NEXT_TELEMETRY_DISABLED:-0}
       TEXT_GENERATION_TIMEOUT_MS: ${TEXT_GENERATION_TIMEOUT_MS:-60000}
       CSP_WHITELIST: ${CSP_WHITELIST:-}
+    networks:
+      - default
 
   # The postgres database.
   db:
@@ -594,6 +596,8 @@ services:
     ports:
       - '${EXPOSE_NGINX_PORT:-8080}:${NGINX_PORT:-80}'
       - '${EXPOSE_NGINX_SSL_PORT:-8443}:${NGINX_SSL_PORT:-443}'
+    networks:
+      - default
 
   # The TiDB vector store.
   # For production use, please refer to https://github.com/pingcap/tidb-docker-compose
